@@ -20,7 +20,7 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/golangwrt/libubox"
+	"github.com/tech-meppem/go-libubox"
 )
 
 // Context encapsulates struct ubus_context
@@ -222,7 +222,6 @@ func (obj *Object) RegisterMethod(name string, f interface{}) error {
 //
 // path: the unix domain socket path for ubus daemon
 // pass empty string will use the DefaultSockPath "/var/run/ubus.sock"
-//
 func Connect(path string) (context *Context, err error) {
 	var cpath *C.char
 	if path != "" {
@@ -377,9 +376,9 @@ func (ctx *Context) AddObject(obj *Object) error {
 
 // Run: schedule the function to be run in context of uloop.run
 // timeout: maximum duration to wait the call finished,
-//     * 0: non wait (async call)
-//     * negative: wait infinitely
-//     * positive: wait specified duration
+//   - 0: non wait (async call)
+//   - negative: wait infinitely
+//   - positive: wait specified duration
 func (ctx *Context) Run(f call, timeout time.Duration) error {
 	req := &f
 
