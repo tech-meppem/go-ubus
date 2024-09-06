@@ -1,7 +1,7 @@
 package ubus
 
 /*
-#cgo LDFLAGS: -lubox -lubus
+#cgo LDFLAGS: -ljson-c -lblobmsg_json -lubox -lubus
 #include <libubus.h>
 #include <libubox/uloop.h>
 extern int ubus_handler_stub(struct ubus_context *ctx, struct ubus_object *obj, struct ubus_request_data *req, const char *method, struct blob_attr *msg);
